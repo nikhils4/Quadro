@@ -1,14 +1,35 @@
-// Installing all the external dependencies
+// Installing all the dependencies
+const express = require("express");
+const bodyParser = require("body-parser")
+const cors = require("cors")
+require("hbs");
 
+// initialisation 
+const router = express.Router()
+const app = express();
+
+// basic setup 
+app.set('view engine', "hbs");
+app.use(cors());
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
 //port 
-
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // use router and mongoose for the backend 
 
+// test route 
+app.get("/", (req, res) => {
+    res.status(200).render("test.hbs")
+})
 
-// default route 
+//test import 
+const openRoutes = require("./routes/openRoutes.js");
+app.use("/open", openRoutes);
+
+// random stuff 
+console.log(app.use)
 
 
 // script to run the server

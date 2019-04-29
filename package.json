@@ -5,7 +5,7 @@
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node api.js"
+    "start": "node api.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/nikhils4/Quadro#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "hbs": "^4.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }
