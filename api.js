@@ -3,6 +3,10 @@ const express = require("express");
 const bodyParser = require("body-parser")
 const cors = require("cors")
 require("hbs");
+require("dotenv").config();
+
+// connecting to the database
+require("./model/connect.js")
 
 // initialisation 
 const router = express.Router()
@@ -37,4 +41,5 @@ console.log(app.use)
 app.listen(port, () => {
     console.log(`Server is up at ${port}`);
 } )
+
 
