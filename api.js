@@ -1,6 +1,9 @@
 // Installing all the external dependencies
-const hbs = require("hbs");
-const app = require("express")();
+
+
+//port 
+
+const port = process.env.PORT || 5000;
 
 // use router and mongoose for the backend 
 
@@ -9,4 +12,8 @@ const app = require("express")();
 
 
 // script to run the server
+
+app.listen(port, () => {
+    console.log(`Server is up at ${port}`);
+} )
 

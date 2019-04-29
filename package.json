@@ -1,0 +1,24 @@
+{
+  "name": "quadro",
+  "version": "1.0.0",
+  "description": "Summer Project",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhils4/Quadro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhils4/Quadro/issues"
+  },
+  "homepage": "https://github.com/nikhils4/Quadro#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hbs": "^4.0.4"
+  }
+}
