@@ -3,4 +3,5 @@ Summer Project
 
 ## Secrets 
 
-MONGO_URI=
+MONGO_URI= <br/>
+SALT=
