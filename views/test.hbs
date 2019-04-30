@@ -6,10 +6,22 @@
     <title>Test</title>
 </head>
 <body>
+    <h1>
+        Sign up
+    </h1>
     <form action="/auth/signup" method="POST">
         First Name : <input name="firstname"><br>
         Last Name : <input name="lastname"><br>
         Email : <input name="email"><br>
+        Username : <input name="username"><br>
+        Password : <input name="password">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h1>
+        Login
+    </h1>
+    <form action="/auth/login" method="POST">
         Username : <input name="username"><br>
         Password : <input name="password">
         <button type="submit">Submit</button>

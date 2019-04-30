@@ -2,6 +2,7 @@ const router = require("express").Router();
 const userProfile = require("../model/model.js").userProfile;
 const hashAndReturn = require("../model/helpers.js").hashAndReturn;
 const emailValidate = require("../model/helpers.js").emailValidate;
+const passwordAuth = require("../model/helpers.js").passwordAuth;
 
 
 
@@ -36,6 +37,31 @@ router.post("/signup", (request, response) => {
         })
 
     }
+})
+
+
+router.post("/login", (request, response) => {
+
+    userProfile.findOne({
+        USERNAME : request.body.username
+    }, (err, data) => {
+        if (err) {
+            console.log("There was error fetching the details", err)
+        } else if (data == null || data == undefined){
+            console.log("No such user exist try signing up first")
+        }
+        else {
+            if ((passwordAuth(data.PASSWORD, request.body.password))){
+                console.log("Success, the password matched successfully")
+                response.send("Success, the password matched successfully")
+            }
+            else {
+                console.log("The password didn't matched")
+                response.send("The password didn't matched")
+            }
+        }
+    })
+
 })
 
 
