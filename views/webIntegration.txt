@@ -1,0 +1,20 @@
+Signup Route :
+GET : /signup
+POST : /auth/signup
+Param :
+firstname
+lastname
+email
+username
+password
+
+Login Route :
+GET : /login
+POST : /auth/login
+Param :
+username
+password 
+
+//add frontend validation for all input || set matching for password and confirm password fields (at the time of signup)
+//backend validation added : Email : using regex || all other inputs : set to required 
+                            
