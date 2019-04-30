@@ -1,8 +1,23 @@
 const router = require("express").Router();
 
-router.get("/home", (request, response) => {
+router.get("/", (request, response) => {
     console.log("Connected route");
     response.send("Hello this is great ");
 })
 
+router.get("/about", (request, response) => {
+    response.send("This is the about route")
+})
+
+router.get("/theteam", (request, response) => {
+    response.send("This is the team route")
+})
+
+router.get("/signup", (request, response) => {
+    response.send("This is the signup route")
+})
+
+router.get("/login", (request, response) => {
+    response.send("This is the login route")
+})
 module.exports = router;

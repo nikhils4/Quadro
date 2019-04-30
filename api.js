@@ -28,9 +28,13 @@ app.get("/", (req, res) => {
     res.status(200).render("test.hbs")
 })
 
-//test import 
+//open routes import 
 const openRoutes = require("./routes/openRoutes.js");
-app.use("/open", openRoutes);
+app.use("/", openRoutes);
+
+//auth routes import 
+const authRoutes = require("./routes/auth.js");
+app.use("/auth", authRoutes)
 
 // random stuff 
 console.log(app.use)
