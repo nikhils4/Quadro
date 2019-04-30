@@ -49,6 +49,7 @@ router.post("/login", (request, response) => {
             console.log("There was error fetching the details", err)
         } else if (data == null || data == undefined){
             console.log("No such user exist try signing up first")
+            response.send("No such user exist try signing up first")
         }
         else {
             if ((passwordAuth(data.PASSWORD, request.body.password))){
