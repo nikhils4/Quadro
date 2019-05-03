@@ -1,12 +1,14 @@
 // Installing all the dependencies
 const express = require("express");
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 const cors = require("cors")
 require("hbs");
 require("dotenv").config();
 
 // connecting to the database
 require("./model/connect.js")
+const middleware = require("./model/middleware.js");
 
 // initialisation 
 const router = express.Router()
@@ -15,6 +17,7 @@ const app = express();
 // basic setup 
 app.set('view engine', "hbs");
 app.use(cors());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
@@ -39,6 +42,12 @@ app.use("/auth", authRoutes)
 // random stuff 
 console.log(app.use)
 
+//protected routes 
+app.use(middleware.session);
+
+//protected routes (with JSON web token)
+const protectedRoutes = require("./routes/protected.js");
+app.use("/secure", protectedRoutes);
 
 // script to run the server
 

@@ -20,4 +20,10 @@ router.get("/signup", (request, response) => {
 router.get("/login", (request, response) => {
     response.send("This is the login route")
 })
+
+router.get("/logout", (request, response) => {
+    response.clearCookie("sessionJWT");
+    response.send("You have been successfully logged out");
+});
+
 module.exports = router;
