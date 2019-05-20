@@ -21,7 +21,8 @@ router.post("/signup", (request, response) => {
             GENDER : request.body.gender,
             PASSWORD : helpers.hashAndReturn(request.body.password),
             EXPERIENCE : request.body.experience,
-            DOMAIN : request.body.skill,
+            DOMAIN : request.body.skill
+            // Image to be added by default according to gender 
         })
     
         profile.save((err, data) => {
@@ -55,7 +56,7 @@ router.post("/signup", (request, response) => {
 router.post("/login",  (request, response) => {
     
     userProfile.findOne({
-        USERNAME : request.body.username
+        EMAIL : request.body.email
     }, (err, data) => {
         if (err) {
             console.log("There was error fetching the details", err)
@@ -72,7 +73,7 @@ router.post("/login",  (request, response) => {
         }
         else {
             if ((helpers.passwordAuth(data.PASSWORD, request.body.password))){
-                const payload = {"username" : request.body.username};
+                const payload = {"email" : request.body.email};
                 let token = jwt.sign(payload, process.env.SECRET);
                 response.cookie('sessionJWT', token, { httpOnly: true});
                 console.log("Success, the password matched successfully")
