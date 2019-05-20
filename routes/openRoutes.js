@@ -6,7 +6,10 @@ router.get("/", (request, response) => {
 })
 
 router.get("/about", (request, response) => {
-    response.send("This is the about route")
+    response.json({
+        status : 200,
+        message : "This is the about route"
+    })
 })
 
 router.get("/theteam", (request, response) => {
