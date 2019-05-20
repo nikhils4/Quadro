@@ -5,4 +5,7 @@ Summer Project
 
 MONGO_URI= <br/>
 SALT= <br/>
-SECRET=
+SECRET= <br />
+API_KEY= <br />
+CLOUD_NAME= <br />
+API_SECRET= 
