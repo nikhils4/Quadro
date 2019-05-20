@@ -10,8 +10,7 @@
         Sign up
     </h1>
     <form action="/auth/signup" method="POST">
-        First Name : <input name="firstname"><br>
-        Last Name : <input name="lastname"><br>
+        Name : <input name="name"><br>
         Email : <input name="email"><br>
         Username : <input name="username"><br>
         Password : <input name="password">
@@ -22,8 +21,17 @@
         Login
     </h1>
     <form action="/auth/login" method="POST">
-        Username : <input name="username"><br>
+        Email : <input name="email"><br>
         Password : <input name="password">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h1>
+        Image upload
+    </h1>
+
+    <form action="/secure/imageupload" enctype="multipart/form-data" method="POST">
+        <input name="image" type="file"><br>
         <button type="submit">Submit</button>
     </form>
 
