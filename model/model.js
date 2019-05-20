@@ -38,10 +38,13 @@ const userProfile = new mongoose.Schema({
         type : String,
         default : "No description provided"
     },
-    IMAGE : {
+    IMAGE_URL : {
         type : String,
         required : true
-    }
+    },
+    IMAGE_ID : {
+        type : String
+    },
 }) 
 
 
