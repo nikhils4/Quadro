@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
 
 const userProfile = new mongoose.Schema({
-    FIRSTNAME : {
-        type : String,
-        required : true,
-        lowercase : true
-    },
-    LASTNAME : {
+    NAME : {
         type : String,
         required : true,
         lowercase : true
@@ -17,13 +12,33 @@ const userProfile = new mongoose.Schema({
         lowercase : true,
         unique : true
     },
-    USERNAME : {
+    DOB : {
+        type : Date,
+        required : true,
+    },
+    GENDER : {
         type : String,
         required : true,
-        lowercase : true,
-        unique : true
+        lowercase : true
+    },
+    EXPERIENCE : {
+        type : Number,
+        required : true
+    },
+    DOMAIN : {
+        type : String,
+        required : true, 
+        lowercase : true
     },
     PASSWORD : {
+        type : String,
+        required : true
+    },
+    DESCRIPTION : {
+        type : String,
+        default : "No description provided"
+    },
+    IMAGE : {
         type : String,
         required : true
     }
