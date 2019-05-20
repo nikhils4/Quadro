@@ -21,7 +21,7 @@ router.post("/signup", (request, response) => {
             GENDER : request.body.gender,
             PASSWORD : helpers.hashAndReturn(request.body.password),
             EXPERIENCE : request.body.experience,
-            DOMAIN : request.body.skill
+            DOMAIN : request.body.domain
             // Image to be added by default according to gender 
         })
     

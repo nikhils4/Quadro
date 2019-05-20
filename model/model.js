@@ -13,7 +13,7 @@ const userProfile = new mongoose.Schema({
         unique : true
     },
     DOB : {
-        type : Date,
+        type : String,
         required : true,
     },
     GENDER : {
@@ -39,8 +39,8 @@ const userProfile = new mongoose.Schema({
         default : "No description provided"
     },
     IMAGE_URL : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     },
     IMAGE_ID : {
         type : String
