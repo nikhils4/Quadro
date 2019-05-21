@@ -25,10 +25,11 @@ router.post("/signup", (request, response) => {
             // Image to be added by default according to gender 
         })
     
+
         profile.save((err, data) => {
             if (err){
                 if (err.code === 11000){
-                    console.log("The given email id is already registered with us")
+                    console.log("The given email id is already registered with us", err)
                     response.json({
                         status : 400,
                         message : "The given email id is already registered with us"
