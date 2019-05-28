@@ -29,4 +29,11 @@ router.get("/logout", (request, response) => {
     response.send("You have been successfully logged out");
 });
 
+router.get("/*", (request, response) => {
+    response.json({
+        status : 404,
+        message : "Nothing found here"
+    }) 
+})
+
 module.exports = router;
