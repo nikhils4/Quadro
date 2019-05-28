@@ -49,6 +49,10 @@ app.use(middleware.session);
 const protectedRoutes = require("./routes/protected.js");
 app.use("/secure", protectedRoutes);
 
+//edit routes
+const editRoutes = require("./routes/editUserProfile.js");
+app.use("/secure/profile/edit", editRoutes);
+
 // script to run the server
 
 app.listen(port, () => {
