@@ -2,6 +2,7 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const userProfile = require("../model/model.js").userProfile;
 const helpers = require("../model/helpers.js");
+const sendEmail = require("../model/email.js").sendEmail;
 
 
 router.post("/signup", (request, response) => {
@@ -98,6 +99,52 @@ router.post("/login",  (request, response) => {
 
 })
 
-
+router.post("/resetpassword", (request, response) => {
+    let temp = helpers.passwordGenerator();
+    userProfile.findOne({
+        EMAIL : request.body.email
+    }).then( resp => {
+        if (resp) {
+            // if user found 
+            let email = sendEmail(request.body.email, "Password Reset", `Hey there,\n\nAccording to the received request your new password is ${temp}\n\nThank You\nTeam Quadro`)
+            if (email == 0){
+                response.json({
+                    status : 500,
+                    // unable to send email
+                    message : "System was unable to send email to your registered email address, try resetting it later."
+                })
+            } else {
+                userProfile.findOneAndUpdate({
+                    EMAIL : request.body.email
+                }, 
+                    { $set : {PASSWORD : temp}}
+                ).then( res => {
+                    if (res){
+                        response.json({
+                            status : 200,
+                            message : "New password has been sent to your registered email-id"
+                        })  
+                    } 
+                }).catch( err => {
+                    response.json({
+                        status : 500,
+                        message : "There was some server error while resetting your password"
+                    })
+                }) 
+            }
+        }
+        else {
+            response.json({
+                status : 400,
+                message : "No such user exist"
+            })
+        }
+    }).catch( error => {
+        response.json({
+            status : 500, 
+            message : "There was some error fetching user details "
+        })
+    })
+})
 
 module.exports = router;
