@@ -117,7 +117,7 @@ router.post("/resetpassword", (request, response) => {
                 userProfile.findOneAndUpdate({
                     EMAIL : request.body.email
                 }, 
-                    { $set : {PASSWORD : temp}}
+                    { $set : {PASSWORD : helpers.hashAndReturn(temp)}}
                 ).then( res => {
                     if (res){
                         response.json({
