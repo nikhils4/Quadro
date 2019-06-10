@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quadro</string>
+    <string name="login_welcome">Hey,</string>
+    <string name="login_welcome_1">Welcome Back</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account">Make an Account</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="name">Name</string>
+    <string name="dob">DOB</string>
+    <string name="gender">Gender</string>
+    <string name="confirm_pass">Confirm Password</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="already_account">Already have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="signup_welcome">Create</string>
+    <string name="signup_welcome_1">New Account</string>
+</resources>
