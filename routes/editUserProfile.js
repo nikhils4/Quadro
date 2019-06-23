@@ -193,32 +193,6 @@ router.post('/rating', (request, response) => {
     });
 });
 
-router.post('/description', (request, response) => {
-  UserProfile.findOneAndUpdate({
-    EMAIL: request.decode.email,
-  },
-  { $set: { DESCRIPTION: request.body.description } })
-    .then((res) => {
-      if (res) {
-        response.json({
-          status: 200,
-          message: 'Successfully updated the profile - description',
-        });
-      } else {
-        response.json({
-          status: 400,
-          message: 'There was error authenticating the user',
-        });
-      }
-    })
-    .catch(() => {
-      response.json({
-        status: 500,
-        message: 'There was some server error while updating your profile - description',
-      });
-    });
-});
-
 router.post('/availability', (request, response) => {
   UserProfile.findOneAndUpdate({
     EMAIL: request.decode.email,
