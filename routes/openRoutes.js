@@ -43,11 +43,4 @@ router.get('/logout', (request, response) => {
   });
 });
 
-// router.get('/*', (request, response) => {
-//   response.json({
-//     status: 404,
-//     message: 'Nothing found here',
-//   });
-// });
-
 module.exports = router;

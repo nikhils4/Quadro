@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const { UserProfile } = require('../model/model.js').userProfile;
-const { helpers } = require('../model/helpers.js');
-const { sendEmail } = require('../model/email.js').sendEmail;
+const UserProfile = require('../model/model.js').userProfile;
+const helpers = require('../model/helpers.js');
+// eslint-disable-next-line prefer-destructuring
+const sendEmail = require('../model/email.js').sendEmail;
 
 router.post('/signup', (request, response) => {
   if (!helpers.emailValidate(request.body.email)) {
@@ -72,10 +73,7 @@ router.post('/login', (request, response) => {
           email: request.body.email,
         };
         const token = jwt.sign(payload, process.env.SECRET);
-        response.cookie('sessionJWT', token, {
-          httpOnly: true,
-        });
-        // console.log("Success, the password matched successfully")
+        // console.log("Success, the password matched successfully");
         response.json({
           status: 200,
           token,
@@ -97,7 +95,7 @@ router.post('/login', (request, response) => {
 
 router.post('/resetpassword', (request, response) => {
   const temp = helpers.passwordGenerator();
-  UserProfile.findOne({        
+  UserProfile.findOne({
     EMAIL: request.body.email,
   }).then((resp) => {
     if (resp) {

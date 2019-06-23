@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { parser } = require('../model/imageUpload.js');
+// eslint-disable-next-line prefer-destructuring
+const parser = require('../model/imageUpload.js').parser;
 const { UserProfile } = require('../model/model.js').userProfile;
 
 router.get('/private', (request, response) => {
