@@ -5,7 +5,7 @@ module.exports.session = (request, response, next) => {
   if (token) {
     jwt.verify(token, process.env.SECRET, (error, decode) => {
       if (error) {
-        response.send({
+        response.json({
           status: 400,
           message: 'Authentication failed (unable to authenticate access token)',
         });
@@ -15,6 +15,9 @@ module.exports.session = (request, response, next) => {
       }
     });
   } else {
-    next();
+    response.json({
+      status: 400,
+      message: 'You can\'t access this without logging in',
+    });
   }
 };
