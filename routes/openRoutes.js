@@ -43,4 +43,11 @@ router.get('/logout', (request, response) => {
   });
 });
 
+router.get('/domains', (request, response) => {
+  response.json({
+    status: 200,
+    data: ['Android Development', 'Artificial Intelligence', 'Cyber Security', 'Designer', 'iOS Developement', 'Machine Learning', 'Web Developemnt'],
+  });
+});
+
 module.exports = router;
