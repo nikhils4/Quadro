@@ -97,10 +97,10 @@ router.post('/resetpassword', (request, response) => {
   const temp = helpers.passwordGenerator();
   UserProfile.findOne({
     EMAIL: request.body.email,
-  }).then((resp) => {
+  }).then(async (resp) => {
     if (resp) {
       // if user found
-      const email = sendEmail(request.body.email, 'Reset Password', `Hey there,\n\nAccording to the received request your new password is ${temp}\n\nThank You\nTeam Quadro`);
+      const email = await sendEmail(request.body.email, 'Reset Password', `Hey there,\n\nAccording to the received request your new password is ${temp}\n\nThank You\nTeam Quadro`);
       if (email === 0) {
         response.json({
           // unable to send email
