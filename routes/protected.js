@@ -104,4 +104,40 @@ router.post('/connect', async (request, response) => {
     });
 });
 
+router.get('/getrecreq', (request, response) => {
+  UserProfile.findOne({
+    EMAIL: request.decode.email,
+  })
+    .then((res) => {
+      response.json({
+        status: 200,
+        data: res.REQUEST_RECEIVED,
+      });
+    })
+    .catch((err) => {
+      response.json({
+        status: 400,
+        message: 'An error occured while fetching details.',
+      });
+    });
+});
+
+router.get('/getsentreq', (request, response) => {
+  UserProfile.findOne({
+    EMAIL: request.decode.email,
+  })
+    .then((res) => {
+      response.json({
+        status: 200,
+        data: res.REQUEST_SENT,
+      });
+    })
+    .catch((err) => {
+      response.json({
+        status: 400,
+        message: 'An error occured while fetching details.',
+      });
+    });
+});
+
 module.exports = router;
