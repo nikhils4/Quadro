@@ -14,7 +14,7 @@ Run the following commands
 
 ```bash
 
-# To install the dependencies
+# To install dependencies
 $ npm i
 
 # To start the server
