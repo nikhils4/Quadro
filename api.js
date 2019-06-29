@@ -1,62 +1,32 @@
-// Installing all the dependencies
-const express = require("express");
-const bodyParser = require("body-parser")
-const cookieParser = require("cookie-parser")
-const cors = require("cors")
-require("hbs");
-require("dotenv").config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const openRoutes = require('./routes/openRoutes.js');
+const authRoutes = require('./routes/auth.js');
+const protectedRoutes = require('./routes/protected.js');
+const editRoutes = require('./routes/editUserProfile.js');
+const middleware = require('./model/middleware.js');
 
-// connecting to the database
-require("./model/connect.js")
-const middleware = require("./model/middleware.js");
+require('hbs');
+require('dotenv').config();
+require('./model/connect.js');
 
-// initialisation 
-const router = express.Router()
 const app = express();
-
-// basic setup 
-app.set('view engine', "hbs");
-app.use(cors());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
-
-//port 
 const port = process.env.PORT || 3000;
 
-// use router and mongoose for the backend 
+app.set('view engine', 'hbs');
+app.use(cors());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// test route 
-app.get("/", (req, res) => {
-    res.status(200).render("test.hbs")
-})
+app.use('/', openRoutes);
+app.use('/auth', authRoutes);
 
-//open routes import 
-const openRoutes = require("./routes/openRoutes.js");
-app.use("/", openRoutes);
-
-//auth routes import 
-const authRoutes = require("./routes/auth.js");
-app.use("/auth", authRoutes)
-
-// random stuff 
-console.log(app.use)
-
-//protected routes 
 app.use(middleware.session);
 
-//protected routes (with JSON web token)
-const protectedRoutes = require("./routes/protected.js");
-app.use("/secure", protectedRoutes);
+app.use('/secure', protectedRoutes);
+app.use('/secure/profile/edit', editRoutes);
 
-//edit routes
-const editRoutes = require("./routes/editUserProfile.js");
-app.use("/secure/profile/edit", editRoutes);
-
-// script to run the server
-
-app.listen(port, () => {
-    console.log(`Server is up at ${port}`);
-} )
-
-
+app.listen(port, () => {});

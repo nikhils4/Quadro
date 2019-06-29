@@ -1,30 +1,29 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
 module.exports.hashAndReturn = (password) => {
-    let hash = bcrypt.hashSync(password, Number(process.env.SALT));
-    return hash
-}
+  const hash = bcrypt.hashSync(password, Number(process.env.SALT));
+  return hash;
+};
 
 module.exports.emailValidate = (email) => {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email.toLowerCase());
-}
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email.toLowerCase());
+};
 
 module.exports.passwordAuth = (dbPassword, inputPassword) => {
-    if(bcrypt.compareSync(inputPassword, dbPassword)) {
-        console.log("Success, passord matched")
-        return true
-       } else {
-        console.log("Failed, the password didn't matched")
-        return false 
-    }
-}
+  if (bcrypt.compareSync(inputPassword, dbPassword)) {
+    // console.log('Success, passord matched');
+    return true;
+  }
+  // console.log("Failed, the password didn't matched");
+  return false;
+};
 
 module.exports.passwordGenerator = () => {
-    var text = "";
-    var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < 8; i++)
-      text += charset.charAt(Math.floor(Math.random() * charset.length));
-    return text;
-}
-
+  let text = '';
+  const charset = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < 8; i += 1) {
+    text += charset.charAt(Math.floor(Math.random() * charset.length));
+  }
+  return text;
+};
