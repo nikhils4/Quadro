@@ -1,0 +1,36 @@
+<android.support.v7.widget.CardView app:cardCornerRadius="25dp"
+    android:layout_margin="4dp"
+    app:cardElevation="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"/>
+
+        <TextView
+            android:text="Rating"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"/>
+
+        <ImageView
+            android:src="@drawable/ic_arrow_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

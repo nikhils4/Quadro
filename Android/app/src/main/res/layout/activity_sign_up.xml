@@ -37,6 +37,7 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/email_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
@@ -49,6 +50,7 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/name_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
@@ -63,18 +65,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" >
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            />
+            <EditText
+                android:id="@+id/dob_et"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/calendar_2x"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:onClick="showCalender"
+                android:src="@drawable/calendar_2x" />
 
         </LinearLayout>
 
@@ -86,30 +89,27 @@
             android:textSize="16sp" />
 
 
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_marginBottom="16dp"
-                android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/male" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <RadioButton
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/male"/>
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/female" />
 
-                <RadioButton
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/female"/>
-                </LinearLayout>
-
-            </RadioGroup>
-
+        </RadioGroup>
 
 
         <TextView
@@ -120,10 +120,11 @@
             android:textSize="16sp" />
 
         <EditText
-            android:inputType="textPassword"
+            android:id="@+id/pass_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_width="match_parent"
@@ -134,12 +135,35 @@
             android:textSize="16sp" />
 
         <EditText
-            android:inputType="textPassword"
+            android:id="@+id/confirm_pass_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp" />
+            android:layout_marginBottom="48dp"
+            android:inputType="textPassword" />
+
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/experiance"
+            android:textColor="@color/seventygray"
+            android:textSize="16sp" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:layout_marginTop="16dp"
+            android:id="@+id/number_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:np_dividerColor="@color/colorPrimary"
+            app:np_max="59"
+            app:np_min="0"
+            app:np_orientation="horizontal"
+            app:np_textColor="@color/colorPrimary"
+            app:np_textSize="16sp" />
+
+        <TextView
+            android:id="@+id/sign_up_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -159,6 +183,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="12dp"
             android:background="@drawable/yellow_btn"
+            android:onClick="startLoginAct"
             android:paddingLeft="36dp"
             android:paddingTop="10dp"
             android:paddingRight="36dp"

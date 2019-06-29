@@ -17,4 +17,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="signup_welcome">Create</string>
     <string name="signup_welcome_1">New Account</string>
+    <string name="available">Available</string>
+    <string name="not_available">Not Available</string>
+    <string name="experiance">Experience</string>
 </resources>
