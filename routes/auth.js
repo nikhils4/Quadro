@@ -78,6 +78,7 @@ router.post('/login', (request, response) => {
           status: 200,
           token,
           message: 'Success, the password matched successfully',
+          data,
           // while passing name capitalise the first letter of each word in name
           // Pass other required data
         });
