@@ -3,7 +3,7 @@ const router = require('express').Router();
 router.get('/', (request, response) => {
   response.json({
     status: 200,
-    message: 'This is the home page',
+    message: 'Quadro API - documentation available at https://documenter.getpostman.com/view/6334076/S1a1bUuq?version=latest',
   });
 });
 
